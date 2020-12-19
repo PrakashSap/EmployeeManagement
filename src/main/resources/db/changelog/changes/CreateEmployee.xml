@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet author="Prakash" id="1">
+	<preConditions onFail="MARK_RAN">
+    <not>
+        <tableExists tableName="employee"/>
+    </not>
+</preConditions>
+		<createTable  tableName="employee">
+		<column name="EMPID" type="int" autoIncrement="true">
+			<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="FIRSTNAME" type="varchar(1024)">
+			<constraints nullable="true" />
+			</column>
+			<column name="MIDDLENAME" type="VARCHAR(1024)">
+				<constraints nullable="true"/>
+			</column>
+			<column name="LASTNAME" type="VARCHAR(1024)">
+			<constraints nullable="true" />
+			</column>
+			<column name="EMAIL" type="VARCHAR(1024)">
+				<constraints nullable="true"/>
+			</column>
+			</createTable>
+		<rollback>
+			<dropTable tableName="employee" />
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

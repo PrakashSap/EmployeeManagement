@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	<changeSet author="prakash" id="1">
+	<insert  catalogName="employee"  
+            dbms="mysql"  
+            schemaName="employee"  
+            tableName="employee">  
+        <column  name="FIRSTNAME"  value="Jhon"/> 
+        <column  name="MIDDLENAME"  value="Micheal"/> 
+        <column  name="LASTNAME"  value="Vergies"/> 
+        <column  name="EMAIL"  value="jhon@gmail.com"/>  
+    </insert>  
+    <modifySql>
+             <replace replace="INSERT" with="insert /*+ ignore_row_on_dupkey_index(my_table, my_table_pk) */"/>
+         </modifySql>
+	</changeSet>
+</databaseChangeLog>
