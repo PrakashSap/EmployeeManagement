@@ -73,6 +73,19 @@ I have used defualt dev profile where i have defined DB connections details, her
 Here I have used Spring boot security with JWT in memory user that's why i have find sortage of time to change into data base and configure user DTO to userDetailservice and check roles.
 Here multiple part didn't handle due above constraint.
 
+JWT token :- 
+
+JWT Secret key :-
+
+jwt.secret=employeeManagement
+jwt.get.token.uri=/authenticate
+
+To authenticate to get Bearer token:-
+http://localhost:8080/authenticate
+
+username=admin or prakash
+password= password
+
 Regards,
 Prakash M
 
